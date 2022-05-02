@@ -116,7 +116,7 @@ async function transferToken(req, res) {
 }
 */
 
-async function transferToken(from, to, amount) {
+async function transferToken(to, amount) {
   // Set web3
   const web3 = new Web3(process.env.TESTNET);
   console.log(process.env.TESTNET);
@@ -143,6 +143,10 @@ async function transferToken(from, to, amount) {
     // });
 
     // contract instance
+    // const transation_count = await web3.eth.getTransactionCount(from);
+    // console.log('transation_count', transation_count);
+    // const accountNonce = "0x" + (transation_count + index).toString(16);
+    // console.log("accountNonce", accountNonce);
     const contract = await new web3.eth.Contract(
       abi,
       process.env.TOKEN_ADDRESS
@@ -161,13 +165,16 @@ async function transferToken(from, to, amount) {
 
     console.log("transferAbi: ", transferAbi);
 
-    // Sign transaction
+    // // Sign transaction
+    // const gasPrice = await web3.eth.gasPrice ;
+    // console.log(gasPrice);
     let signTransaction = await web3.eth.accounts.signTransaction(
       {
         // from: from,
         to: process.env.TOKEN_ADDRESS,
         data: transferAbi,
-        gas: 2000000,
+        gas: 4000000,
+        // nonce: accountNonce,
       },
       process.env.PRIVATE_KEY
     );
