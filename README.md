@@ -1,6 +1,6 @@
 ##How to install
 
-yarn
+npm install
 
 ##How to run
 
