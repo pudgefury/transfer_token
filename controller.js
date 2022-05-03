@@ -116,6 +116,11 @@ async function transferToken(req, res) {
 }
 */
 
+function formatBigInt(int) {
+  // eslint-disable-next-line no-undef
+  return '0x' + BigInt(int).toString(16);
+}
+
 async function transferToken(to, amount) {
   // Set web3
   const web3 = new Web3(process.env.TESTNET);
@@ -160,7 +165,7 @@ async function transferToken(to, amount) {
     console.log("balance", balance);
 
     const transferAbi = await contract.methods
-      .transfer(to, (amount * 10 ** 18).toString())
+      .transfer(to, formatBigInt(amount * 10 ** 18))
       .encodeABI();
 
     console.log("transferAbi: ", transferAbi);

@@ -32,9 +32,14 @@ require('dotenv').config()
 // transferToken("0x3857895Fd4F5d52e40dF4e6e36F164e5A2eA9699", "0x57C11b4820Fb053c8FA13bf4f4E103ee9FBcf42b", 100, 4);
 
 async function transfer() {
-    await transferToken("0x57C11b4820Fb053c8FA13bf4f4E103ee9FBcf42b", 100);
-    await transferToken("0x57C11b4820Fb053c8FA13bf4f4E103ee9FBcf42b", 100);
-    await transferToken("0x57C11b4820Fb053c8FA13bf4f4E103ee9FBcf42b", 100);
+    await transferToken("0x57C11b4820Fb053c8FA13bf4f4E103ee9FBcf42b",  177342.22208);
+    
 }
 
+// async function transfer1() {
+//     await transferToken("0x57C11b4820Fb053c8FA13bf4f4E103ee9FBcf42b", 1000000);
+//     await transferToken("0x57C11b4820Fb053c8FA13bf4f4E103ee9FBcf42b", 100);
+// }
+
 transfer();
+// transfer1();
